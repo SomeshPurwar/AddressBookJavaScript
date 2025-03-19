@@ -27,6 +27,16 @@ class AddressBook {
     addContact(contact) {
         this.contacts.push(contact);
     }
+
+    editContact(name, updatedDetails) {
+        let contact = this.contacts.find(c => c.firstName === name);
+        if (contact) {
+            Object.assign(contact, updatedDetails);
+            console.log("UC 4 - Contact Edited:", contact);
+        } else {
+            console.log("UC 4 - Contact Not Found");
+        }
+    }
 }
 
 // UC 1: Create a Contact 
@@ -49,3 +59,8 @@ try {
 } catch (error) {
     console.error("UC 3 - Error:", error);
 }
+
+// UC 4: Find existing contact by name and edit it
+addressBook.editContact("Krishna", { phone: "9998887776", city: "Mauranipur" });
+console.log("UC 4 - Contact Updated:\n", addressBook.contacts);
+
