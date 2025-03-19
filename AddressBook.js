@@ -25,7 +25,13 @@ class AddressBook {
         this.contacts = [];
     }
     addContact(contact) {
-        this.contacts.push(contact);
+        let isDuplicate = this.contacts.some(c => c.firstName === contact.firstName && c.lastName === contact.lastName);
+        if (isDuplicate) {
+            console.log("UC 7 - Duplicate Contact Not Allowed");
+        } else {
+            this.contacts.push(contact);
+            console.log("UC 7 - Contact Added:", contact);
+        }
     }
 
     editContact(name, updatedDetails) {
@@ -86,4 +92,13 @@ console.log( addressBook.contacts);
 
 // UC 6: Count the number of contacts in the Address Book
 addressBook.countContacts();
+
+// UC 7: Ensure no duplicate entries
+try {
+    let duplicateContact = new Contact("Krishna", "Purwar", "string", "string", "string", "02108", "1112223333", "string@email.com");
+    addressBook.addContact(duplicateContact);
+} catch (error) {
+    console.error("UC 7 - Error:", error);
+}
+
 
