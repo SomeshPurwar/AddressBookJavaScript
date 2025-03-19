@@ -37,6 +37,16 @@ class AddressBook {
             console.log("UC 4 - Contact Not Found");
         }
     }
+    
+    deleteContact(name) {
+        let index = this.contacts.findIndex(c => c.firstName === name);
+        if (index !== -1) {
+            this.contacts.splice(index, 1);
+            console.log("UC 5 - Contact Deleted:", name);
+        } else {
+            console.log("UC 5 - Contact Not Found");
+        }
+    }
 }
 
 // UC 1: Create a Contact 
@@ -63,4 +73,8 @@ try {
 // UC 4: Find existing contact by name and edit it
 addressBook.editContact("Krishna", { phone: "9998887776", city: "Mauranipur" });
 console.log("UC 4 - Contact Updated:\n", addressBook.contacts);
+
+// UC 5: Find a contact by name and delete it
+addressBook.deleteContact("Krishna");
+console.log( addressBook.contacts);
 
