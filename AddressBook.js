@@ -47,6 +47,12 @@ class AddressBook {
             console.log("UC 5 - Contact Not Found");
         }
     }
+
+    countContacts() {
+        let count = this.contacts.reduce((total, contact) => total + 1, 0);
+        console.log("UC 6 - Total Contacts:", count);
+        return count;
+    }
 }
 
 // UC 1: Create a Contact 
@@ -77,4 +83,7 @@ console.log("UC 4 - Contact Updated:\n", addressBook.contacts);
 // UC 5: Find a contact by name and delete it
 addressBook.deleteContact("Krishna");
 console.log( addressBook.contacts);
+
+// UC 6: Count the number of contacts in the Address Book
+addressBook.countContacts();
 
