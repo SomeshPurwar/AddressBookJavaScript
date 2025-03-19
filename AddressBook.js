@@ -34,12 +34,8 @@ try {
     console.error("UC 1 - Error:", error);
 }
 
-// UC 2: Create an Address Book and add new Contacts
+// UC 2: Create an Address Book and add regex validation
 let addressBook = new AddressBook();
-try {
-    addressBook.contacts.push(new Contact("Krishna", "Purwar", "string", "string", "string", "284204", "1234567890", "string@email.com"));
-    console.log("UC 2 - Address Book:", addressBook.contacts);
-} catch (error) {
-    console.error("UC 2 - Error:", error);
-}
+console.log("UC 2 - Address Book Created:", addressBook);
+
 
