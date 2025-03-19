@@ -24,6 +24,9 @@ class AddressBook {
     constructor() {
         this.contacts = [];
     }
+    addContact(contact) {
+        this.contacts.push(contact);
+    }
 }
 
 // UC 1: Create a Contact 
@@ -38,4 +41,11 @@ try {
 let addressBook = new AddressBook();
 console.log("UC 2 - Address Book Created:", addressBook);
 
-
+// UC 3: Add new Contacts to Address Book
+try {
+    let contact2 = new Contact("Krishna", "Purwar", "string", "string", "string", "90001", "9876543210", "string@email.com");
+    addressBook.addContact(contact2);
+    console.log("UC 3 - Contact Added:\n", addressBook.contacts);
+} catch (error) {
+    console.error("UC 3 - Error:", error);
+}
