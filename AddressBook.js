@@ -18,6 +18,9 @@ class Contact {
         this.phone = phone;
         this.email = email;
     }
+    toString() {
+        return `${this.firstName} ${this.lastName}, ${this.address}, ${this.city}, ${this.state}, ${this.zip}, ${this.phone}, ${this.email}`;
+    }
 }
 
 class AddressBook {
@@ -77,6 +80,12 @@ class AddressBook {
         console.log("UC 10 - Count of persons in", location, ":", count);
         return count;
     }
+
+    sortByName() {
+        this.contacts.sort((a, b) => a.firstName.localeCompare(b.firstName));
+        console.log("UC 11 - Sorted Contacts:");
+        this.contacts.forEach(contact => console.log(contact.toString()));
+    }
 }
 
 // UC 1: Create a Contact 
@@ -93,8 +102,11 @@ console.log("UC 2 - Address Book Created:", addressBook);
 
 // UC 3: Add new Contacts to Address Book
 try {
+    let contact1 = new Contact("Somesh", "Purwar", "Mauranipur", "Jhansi", "Uttar Pradesh", "284204", "1234567890", "somesh.purwar@email.com");
     let contact2 = new Contact("Krishna", "Purwar", "string", "string", "string", "90001", "9876543210", "string@email.com");
     addressBook.addContact(contact2);
+    addressBook.addContact(contact1);
+
     console.log("UC 3 - Contact Added:\n", addressBook.contacts);
 } catch (error) {
     console.error("UC 3 - Error:", error);
@@ -127,4 +139,8 @@ addressBook.viewByCityOrState("Mauranipur");
 
 // UC 10: Count persons by City or State
 addressBook.countByCityOrState("Mauranipur");
+
+// UC 11: Sort contacts alphabetically by name
+addressBook.sortByName();
+
 
