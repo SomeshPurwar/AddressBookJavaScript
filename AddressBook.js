@@ -86,6 +86,12 @@ class AddressBook {
         console.log("UC 11 - Sorted Contacts:");
         this.contacts.forEach(contact => console.log(contact.toString()));
     }
+
+    sortByField(field) {
+        this.contacts.sort((a, b) => a[field].localeCompare(b[field]));
+        console.log(`UC 12 - Sorted Contacts by ${field}:`);
+        this.contacts.forEach(contact => console.log(contact.toString()));
+    }
 }
 
 // UC 1: Create a Contact 
@@ -142,5 +148,10 @@ addressBook.countByCityOrState("Mauranipur");
 
 // UC 11: Sort contacts alphabetically by name
 addressBook.sortByName();
+
+// UC 12: Sort contacts by City, State, or Zip
+addressBook.sortByField("city");
+addressBook.sortByField("state");
+addressBook.sortByField("zip");
 
 
