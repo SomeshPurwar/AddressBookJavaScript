@@ -71,6 +71,12 @@ class AddressBook {
         console.log("UC 9 - Persons in", location, ":", result);
         return result;
     }
+
+    countByCityOrState(location) {
+        let count = this.contacts.filter(c => c.city === location || c.state === location).reduce((total, c) => total + 1, 0);
+        console.log("UC 10 - Count of persons in", location, ":", count);
+        return count;
+    }
 }
 
 // UC 1: Create a Contact 
@@ -118,4 +124,7 @@ addressBook.searchByCityOrState("string");
 
 // UC 9: View persons by City or State
 addressBook.viewByCityOrState("Mauranipur");
+
+// UC 10: Count persons by City or State
+addressBook.countByCityOrState("Mauranipur");
 
