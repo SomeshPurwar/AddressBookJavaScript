@@ -59,6 +59,12 @@ class AddressBook {
         console.log("UC 6 - Total Contacts:", count);
         return count;
     }
+
+    searchByCityOrState(location) {
+        let result = this.contacts.filter(c => c.city === location || c.state === location);
+        console.log("UC 8 - Search Results for", location, ":", result);
+        return result;
+    }
 }
 
 // UC 1: Create a Contact 
@@ -100,5 +106,8 @@ try {
 } catch (error) {
     console.error("UC 7 - Error:", error);
 }
+
+// UC 8: Search for a person by City or State
+addressBook.searchByCityOrState("string");
 
 
