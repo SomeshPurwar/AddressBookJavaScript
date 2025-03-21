@@ -65,6 +65,12 @@ class AddressBook {
         console.log("UC 8 - Search Results for", location, ":", result);
         return result;
     }
+
+    viewByCityOrState(location) {
+        let result = this.contacts.filter(c => c.city === location || c.state === location).map(c => `${c.firstName} ${c.lastName}`);
+        console.log("UC 9 - Persons in", location, ":", result);
+        return result;
+    }
 }
 
 // UC 1: Create a Contact 
@@ -110,4 +116,6 @@ try {
 // UC 8: Search for a person by City or State
 addressBook.searchByCityOrState("string");
 
+// UC 9: View persons by City or State
+addressBook.viewByCityOrState("Mauranipur");
 
